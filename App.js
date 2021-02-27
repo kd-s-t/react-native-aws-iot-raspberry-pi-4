@@ -8,7 +8,6 @@ import {
   StatusBar,
 } from 'react-native';
 import {
-  // Header,
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 import { Button } from 'react-native-elements';
@@ -33,17 +32,27 @@ Amplify.addPluggable(new AWSIoTProvider({
   aws_pubsub_endpoint: `wss://${REACT_APP_MQTT_ID}.iot.${REACT_APP_REGION}.amazonaws.com/mqtt`,
 }));
 
-// Amplify.PubSub.subscribe('react-weather-app').subscribe({
-//   next: data => console.log('Message received', data),
-//   error: error => console.error(error),
-//   close: () => console.log('Done'),
-// });
+Amplify.PubSub.publish('smartbank/check', { message: "is the device powered on?" });
 
 const Separator: () => React$Node = () => {
   return ( <View style={styles.separator} />);
 };
 
 const App: () => React$Node = () => {
+  const [connection, setConnection] = React.useState("Connecting to device...");
+  const [buttons, setButtons] = React.useState(false);
+
+  Amplify.PubSub.subscribe('smartbank/connection').subscribe({
+    next: data => {
+      if(data.value.message === "Yes"){
+        setConnection("Connected.")
+        setButtons(true)
+      }
+    },
+    error: error => console.error(error),
+    close: () => console.log('Done'),
+  });
+
   const unLock = () => {
     Amplify.PubSub.publish('smartbank/switch', { switch: 1 });
   }
@@ -61,45 +70,47 @@ const App: () => React$Node = () => {
           <Header/>
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Simple switch for unlocking and locking your bank.</Text>
+              <Text style={styles.sectionTitle}>{connection}</Text>
               <Separator />
               <View style={styles.sectionDescription}>
-                <Button
-                  buttonStyle={{
-                      borderRadius: 60,
-                      flex: 1,
-                      height: 60,
-                      width: 60,  
-                  }}
-                  icon={
-                    <Icon
-                      name="unlock-alt"
-                      size={35}
-                      color="green"
-                    />
-                  }
-                  type="clear"
-                  onPress={unLock}
-                  color="lightgreen"
-                />
-                <Button
-                  buttonStyle={{
-                      borderRadius: 60,
-                      flex: 1,
-                      height: 60,
-                      width: 60,  
-                  }}
-                  icon={
-                    <Icon
-                      name="lock"
-                      size={35}
-                      color="red"
-                    />
-                  }
-                  type="clear"
-                  onPress={lock}
-                  color="darkred"
-                />
+                {buttons && <>
+                  <Button
+                    buttonStyle={{
+                        borderRadius: 60,
+                        flex: 1,
+                        height: 60,
+                        width: 60,  
+                    }}
+                    icon={
+                      <Icon
+                        name="unlock-alt"
+                        size={35}
+                        color="green"
+                      />
+                    }
+                    type="clear"
+                    onPress={unLock}
+                    color="lightgreen"
+                  />
+                  <Button
+                    buttonStyle={{
+                        borderRadius: 60,
+                        flex: 1,
+                        height: 60,
+                        width: 60,  
+                    }}
+                    icon={
+                      <Icon
+                        name="lock"
+                        size={35}
+                        color="red"
+                      />
+                    }
+                    type="clear"
+                    onPress={lock}
+                    color="darkred"
+                  />
+                </>}
               </View>
             </View>
             <View style={styles.by}>

@@ -27,7 +27,7 @@ Using Amplify
 Publish to Channel  
 
 ## In AWS  
-I setup IoT core, IAM, Cognito User, Cognito Pool and Amplify  
+I setup IoT thing, IAM role, Cognito User Pool, Cognito Identity Pool and Amplify  
 
 ## In Raspberry Pi 4  
 Solenoid Lock-style 12v  

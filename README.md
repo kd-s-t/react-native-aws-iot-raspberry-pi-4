@@ -21,6 +21,9 @@ REACT_APP_MQTT_ID='*****-ats'
 ## UI  
 <img src="./smartbank.png" width="20%">  
 
+## Gallery  
+https://github.com/ollolollollooloo/react-native-aws-iot-raspberry-pi-4/tree/main/gallery    
+  
 ## In React Native  
 I run this program in Windows 10 and Android Studio  
 Using Amplify  

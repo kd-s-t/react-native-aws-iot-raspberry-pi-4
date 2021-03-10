@@ -14,15 +14,22 @@ import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Amplify from 'aws-amplify';
 import { AWSIoTProvider } from '@aws-amplify/pubsub/lib/Providers';
-import {REACT_APP_IDENTITY_POOL_ID,REACT_APP_REGION,REACT_APP_USER_POOL_ID,REACT_APP_USER_POOL_WEB_CLIENT_ID,REACT_APP_MQTT_ID} from "@env"
+import {REACT_APP_IDENTITY_POOL_ID,REACT_APP_REGION,REACT_APP_USER_POOL_ID,REACT_APP_USER_POOL_WEB_CLIENT_ID,REACT_APP_MQTT_ID,REACT_APP_TEST} from "@env"
 
 import Header from './components/Header';
+
+console.log("REACT_APP_IDENTITY_POOL_ID",REACT_APP_IDENTITY_POOL_ID)
+console.log("REACT_APP_REGION",REACT_APP_REGION)
+console.log("REACT_APP_USER_POOL_ID",REACT_APP_USER_POOL_ID)
+console.log("REACT_APP_USER_POOL_WEB_CLIENT_ID",REACT_APP_USER_POOL_WEB_CLIENT_ID)
+console.log("REACT_APP_MQTT_ID",REACT_APP_MQTT_ID)
+console.log("REACT_APP_TEST",REACT_APP_TEST)
 
 Amplify.configure({
   Auth: {
     identityPoolId: REACT_APP_IDENTITY_POOL_ID,
     region: REACT_APP_REGION,
-    userPoolId: "us-east-2_UkCohUiyE",
+    userPoolId: REACT_APP_USER_POOL_ID,
     userPoolWebClientId: REACT_APP_USER_POOL_WEB_CLIENT_ID
   }
 });

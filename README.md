@@ -8,14 +8,15 @@ Development time: `react 16.13.1` `react-native: 0.63.4`
 
 add this in .env:  
 ```
-REACT_APP_IDENTITY_POOL_ID='ph-manila-2:*****-*****-*****-*****-*****'  
-REACT_APP_REGION='ph-manila-2'  
-REACT_APP_USER_POOL_ID='ph-manila-2_*****'  
-REACT_APP_USER_POOL_WEB_CLIENT_ID='*************************'  
-REACT_APP_MQTT_ID='*****-ats'  
+REACT_APP_IDENTITY_POOL_ID=ph-manila-2:*****-*****-*****-*****-*****  
+REACT_APP_REGION=ph-manila-2  
+REACT_APP_USER_POOL_ID=ph-manila-2_*****  
+REACT_APP_USER_POOL_WEB_CLIENT_ID=*************************  
+REACT_APP_MQTT_ID=*****-ats  
 ```
 
 `yarn install`  
+`yarn add aws-amplify`  
 `npx react-native run-android`   
 
 ## UI  

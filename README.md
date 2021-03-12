@@ -29,9 +29,11 @@ https://github.com/ollolollollooloo/react-native-aws-iot-raspberry-pi-4/tree/mai
 I run this program in Windows 10 and Android Studio  
 Using Amplify  
 Publish to Channel  
+Learn more: https://youtu.be/EfbRKaPt2S4   
 
 ## In AWS  
 I setup IoT thing, IAM role, Cognito User Pool, Cognito Identity Pool and Amplify  
+Learn more: https://youtu.be/p8Vb9l2dW6Q  
 
 ## In Raspberry Pi 4  
 Solenoid Lock-style 12v  
@@ -39,8 +41,8 @@ Module Relay
 12v plug  
 Using Python library provided by Amazon  
 Subscribe to Channel  
+Learn more: https://youtu.be/917QGloMW0o    
 
+## Youtube Tutorial    
 By Following this Tutorial  
-[Youtube Tutorial Soon]  
-
-This is still in development....  
+https://youtu.be/QPBwH_MwWWA   

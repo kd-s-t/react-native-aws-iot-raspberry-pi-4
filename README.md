@@ -44,5 +44,5 @@ Subscribe to Channel
 Learn more: https://youtu.be/917QGloMW0o    
 
 ## Youtube Tutorial    
-By Following this Tutorial  
+Setup this repo by following this tutorial  
 https://youtu.be/QPBwH_MwWWA   
